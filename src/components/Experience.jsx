@@ -5,7 +5,7 @@ const experiences = [
     {
         year: '2025',
         title: 'Stagiaire Technicien Réseau',
-        company: 'Réseaux Bureautique',
+        company: 'Réso Buro',
         icon: Server,
         color: '#00d4ff',
         tasks: [
@@ -18,7 +18,7 @@ const experiences = [
     {
         year: '2024',
         title: 'Stagiaire Technicien Réseau & Télécom',
-        company: '',
+        company: 'Réseaux Bureautique',
         icon: Phone,
         color: '#8b5cf6',
         tasks: [

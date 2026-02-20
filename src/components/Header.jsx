@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, User, Code, FolderKanban, Briefcase, GraduationCap, Mail, FileText, MonitorCog } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const navLinks = [
-    { label: 'Profil', href: '#hero' },
-    { label: 'Compétences', href: '#skills' },
-    { label: 'Projets', href: '#projects' },
-    { label: 'Expériences', href: '#experience' },
-    { label: 'Formation', href: '#formation' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Profil', href: '#hero', icon: User },
+    { label: 'Compétences', href: '#skills', icon: Code },
+    { label: 'Projets', href: '#projects', icon: FolderKanban },
+    { label: 'Expériences', href: '#experience', icon: Briefcase },
+    { label: 'Formation', href: '#formation', icon: GraduationCap },
+    { label: 'Écosystème', href: '/ecosystem', icon: MonitorCog, isRoute: true },
+    { label: 'Contact', href: '#contact', icon: Mail },
 ]
 
 export default function Header() {
@@ -42,18 +44,51 @@ export default function Header() {
                 </motion.a>
 
                 {/* Desktop nav */}
-                <ul className="hidden md:flex items-center gap-8">
-                    {navLinks.map((link) => (
-                        <li key={link.href}>
-                            <a
-                                href={link.href}
-                                className="text-sm text-white/60 hover:text-neon transition-colors duration-300 relative group"
-                            >
-                                {link.label}
-                                <span className="absolute -bottom-1 left-0 w-0 h-px bg-neon group-hover:w-full transition-all duration-300" />
-                            </a>
-                        </li>
-                    ))}
+                <ul className="hidden md:flex items-center gap-6">
+                    {navLinks.map((link) => {
+                        const Icon = link.icon
+                        const linkClass = "text-white/60 hover:text-neon transition-colors duration-300 relative flex items-center justify-center p-2"
+                        const inner = (
+                            <>
+                                <Icon size={20} strokeWidth={1.8} />
+                                {/* Tooltip */}
+                                <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 text-xs font-medium text-white bg-dark/90 border border-glass-border rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none backdrop-blur-sm">
+                                    {link.label}
+                                </span>
+                                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-px bg-neon group-hover:w-full transition-all duration-300" />
+                            </>
+                        )
+                        return (
+                            <li key={link.href} className="relative group">
+                                {link.isRoute ? (
+                                    <Link to={link.href} className={linkClass} aria-label={link.label}>
+                                        {inner}
+                                    </Link>
+                                ) : (
+                                    <a href={link.href} className={linkClass} aria-label={link.label}>
+                                        {inner}
+                                    </a>
+                                )}
+                            </li>
+                        )
+                    })}
+                    {/* CV link */}
+                    <li className="relative group">
+                        <a
+                            href="/cv.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-white/60 hover:text-neon transition-colors duration-300 relative flex items-center justify-center p-2"
+                            aria-label="CV"
+                        >
+                            <FileText size={20} strokeWidth={1.8} />
+                            {/* Tooltip */}
+                            <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 text-xs font-medium text-white bg-dark/90 border border-glass-border rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none backdrop-blur-sm">
+                                CV
+                            </span>
+                            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-px bg-neon group-hover:w-full transition-all duration-300" />
+                        </a>
+                    </li>
                 </ul>
 
                 {/* Mobile toggle */}
@@ -76,17 +111,38 @@ export default function Header() {
                         className="md:hidden bg-dark/95 backdrop-blur-xl border-b border-glass-border"
                     >
                         <ul className="flex flex-col items-center gap-6 py-8">
-                            {navLinks.map((link) => (
-                                <li key={link.href}>
-                                    <a
-                                        href={link.href}
-                                        onClick={() => setMobileOpen(false)}
-                                        className="text-lg text-white/70 hover:text-neon transition-colors duration-300"
-                                    >
-                                        {link.label}
-                                    </a>
-                                </li>
-                            ))}
+                            {navLinks.map((link) => {
+                                const Icon = link.icon
+                                const linkClass = "flex items-center gap-3 text-lg text-white/70 hover:text-neon transition-colors duration-300"
+                                return (
+                                    <li key={link.href}>
+                                        {link.isRoute ? (
+                                            <Link to={link.href} onClick={() => setMobileOpen(false)} className={linkClass}>
+                                                <Icon size={20} strokeWidth={1.8} />
+                                                {link.label}
+                                            </Link>
+                                        ) : (
+                                            <a href={link.href} onClick={() => setMobileOpen(false)} className={linkClass}>
+                                                <Icon size={20} strokeWidth={1.8} />
+                                                {link.label}
+                                            </a>
+                                        )}
+                                    </li>
+                                )
+                            })}
+                            {/* CV link mobile */}
+                            <li>
+                                <a
+                                    href="/cv.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={() => setMobileOpen(false)}
+                                    className="flex items-center gap-3 text-lg text-white/70 hover:text-neon transition-colors duration-300"
+                                >
+                                    <FileText size={20} strokeWidth={1.8} />
+                                    CV
+                                </a>
+                            </li>
                         </ul>
                     </motion.div>
                 )}
