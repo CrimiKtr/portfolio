@@ -11,7 +11,7 @@ function App() {
     return (
         <div className="relative min-h-screen bg-dark overflow-hidden">
             {/* Background decorative elements */}
-            <div className="fixed inset-0 bg-grid pointer-events-none z-0" />
+            <div className="fixed inset-0 bg-deep-space pointer-events-none z-0" />
             <div className="orb w-[600px] h-[600px] bg-neon top-[-200px] left-[-200px]" />
             <div className="orb w-[400px] h-[400px] bg-blue-600 bottom-[20%] right-[-100px]" />
             <div className="orb w-[300px] h-[300px] bg-purple-600 top-[60%] left-[10%]" />

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, User, Code, FolderKanban, Briefcase, GraduationCap, Mail, FileText, MonitorCog } from 'lucide-react'
+import { Menu, X, User, Code, FolderKanban, Briefcase, GraduationCap, Mail, FileText, MonitorCog, Gamepad2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const navLinks = [
@@ -10,6 +10,7 @@ const navLinks = [
     { label: 'Expériences', href: '#experience', icon: Briefcase },
     { label: 'Formation', href: '#formation', icon: GraduationCap },
     { label: 'Écosystème', href: '/ecosystem', icon: MonitorCog, isRoute: true },
+    { label: 'Mini-Jeu', href: '/mini-jeu', icon: Gamepad2, isRoute: true },
     { label: 'Contact', href: '#contact', icon: Mail },
 ]
 

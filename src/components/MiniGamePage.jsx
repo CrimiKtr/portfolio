@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 import { ArrowLeft } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import Ecosystem from './Ecosystem'
+import MetroGame from './MetroGame'
 import ClickEffect from './ClickEffect'
 
-export default function EcosystemPage() {
+export default function MiniGamePage() {
     return (
         <div className="relative min-h-screen bg-dark overflow-hidden">
             {/* Background decorative elements */}
@@ -45,7 +45,7 @@ export default function EcosystemPage() {
                 </motion.header>
 
                 <div className="pt-20">
-                    <Ecosystem />
+                    <MetroGame />
                 </div>
             </div>
         </div>

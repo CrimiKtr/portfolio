@@ -17,13 +17,16 @@
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: #0d0d0d;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #00d4ff40;
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #00d4ff80;
 }
@@ -45,18 +48,24 @@ body {
 
 /* Neon glow keyframes */
 @keyframes neon-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 20px #00d4ff40, 0 0 40px #00d4ff20, 0 0 60px #00d4ff10;
   }
+
   50% {
     box-shadow: 0 0 30px #00d4ff60, 0 0 60px #00d4ff30, 0 0 90px #00d4ff15;
   }
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -66,8 +75,23 @@ body {
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(50px);
+  }
+}
+
+@keyframes aurora-drift {
+
+  0%,
+  100% {
+    opacity: 0.12;
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    opacity: 0.18;
+    transform: scale(1.05) rotate(1deg);
   }
 }
 
@@ -95,12 +119,38 @@ body {
   box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
 }
 
-/* Background grid pattern */
-.bg-grid {
-  background-image: 
-    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+/* Background deep space + noise texture */
+.bg-deep-space {
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(10, 30, 80, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(40, 10, 70, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 80%, rgba(0, 50, 80, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 10% 60%, rgba(20, 5, 50, 0.2) 0%, transparent 40%),
+    #0d0d0d;
+}
+
+.bg-deep-space::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+.bg-deep-space::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 30% 10%, rgba(0, 212, 255, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 90%, rgba(120, 50, 255, 0.03) 0%, transparent 50%);
+  animation: aurora-drift 12s ease-in-out infinite;
 }
 
 /* Gradient orbs */
