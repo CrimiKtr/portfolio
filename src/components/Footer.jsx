@@ -1,13 +1,11 @@
 import { motion } from 'framer-motion'
 import { Mail, MapPin, Globe, Heart } from 'lucide-react'
+import { useLanguage } from '../i18n/LanguageContext'
 
-const languages = [
-    { name: 'Français', level: 'Maternel', pct: 100 },
-    { name: 'Anglais', level: 'B2', pct: 70 },
-    { name: 'Turc', level: 'Intermédiaire', pct: 50 },
-]
+const languagePcts = [100, 70, 50]
 
 export default function Footer() {
+    const { t } = useLanguage()
     return (
         <footer id="contact" className="relative pt-24 pb-8 px-6">
             <div className="max-w-4xl mx-auto">
@@ -20,7 +18,7 @@ export default function Footer() {
                     className="text-center mb-16"
                 >
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                        Contact
+                        {t.footer.title}
                     </h2>
                     <div className="w-20 h-1 bg-gradient-to-r from-transparent via-neon to-transparent mx-auto rounded-full" />
                 </motion.div>
@@ -34,7 +32,7 @@ export default function Footer() {
                         transition={{ duration: 0.6 }}
                         className="glass-card p-6"
                     >
-                        <h3 className="text-lg font-semibold text-white mb-6">Coordonnées</h3>
+                        <h3 className="text-lg font-semibold text-white mb-6">{t.footer.coordonnees}</h3>
                         <div className="space-y-4">
                             <a
                                 href="mailto:incetoli0@gmail.com"
@@ -44,7 +42,7 @@ export default function Footer() {
                                     <Mail size={18} />
                                 </div>
                                 <div>
-                                    <p className="text-xs text-white/30">Email</p>
+                                    <p className="text-xs text-white/30">{t.footer.email}</p>
                                     <p className="text-sm">incetoli0@gmail.com</p>
                                 </div>
                             </a>
@@ -53,7 +51,7 @@ export default function Footer() {
                                     <MapPin size={18} />
                                 </div>
                                 <div>
-                                    <p className="text-xs text-white/30">Ville</p>
+                                    <p className="text-xs text-white/30">{t.footer.ville}</p>
                                     <p className="text-sm">Bagnolet</p>
                                 </div>
                             </div>
@@ -70,10 +68,10 @@ export default function Footer() {
                     >
                         <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
                             <Globe size={18} className="text-neon" />
-                            Langues
+                            {t.footer.langues}
                         </h3>
                         <div className="space-y-5">
-                            {languages.map((lang) => (
+                            {t.footer.langueItems.map((lang, i) => (
                                 <div key={lang.name}>
                                     <div className="flex justify-between items-center mb-2">
                                         <span className="text-sm text-white/70">{lang.name}</span>
@@ -82,7 +80,7 @@ export default function Footer() {
                                     <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
                                         <motion.div
                                             initial={{ width: 0 }}
-                                            whileInView={{ width: `${lang.pct}%` }}
+                                            whileInView={{ width: `${languagePcts[i]}%` }}
                                             viewport={{ once: true }}
                                             transition={{ duration: 1, delay: 0.3 }}
                                             className="h-full bg-gradient-to-r from-neon to-blue-500 rounded-full"
@@ -103,7 +101,7 @@ export default function Footer() {
                     className="border-t border-white/5 pt-8 text-center"
                 >
                     <p className="text-sm text-white/30 flex items-center justify-center gap-1">
-                        Créé avec <Heart size={14} className="text-neon inline-block" /> par Toli INCE — {new Date().getFullYear()}
+                        {t.footer.createdBy} <Heart size={14} className="text-neon inline-block" /> {t.footer.by} Toli INCE — {new Date().getFullYear()}
                     </p>
                 </motion.div>
             </div>

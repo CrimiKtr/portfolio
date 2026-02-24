@@ -38,8 +38,8 @@ export default function EcosystemPage() {
                             className="text-xl font-bold tracking-tight"
                             whileHover={{ scale: 1.05 }}
                         >
-                            <span className="text-white">toli</span>
-                            <span className="text-neon">.dev</span>
+                            <span className="text-white">Toli </span>
+                            <span className="bg-gradient-to-r from-neon to-blue-400 bg-clip-text text-transparent">INCE</span>
                         </motion.a>
                     </nav>
                 </motion.header>

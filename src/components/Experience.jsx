@@ -1,36 +1,24 @@
 import { motion } from 'framer-motion'
 import { Briefcase, Server, Phone, BarChart3, Wrench, Code } from 'lucide-react'
+import { useLanguage } from '../i18n/LanguageContext'
 
-const experiences = [
+const experiencesMeta = [
     {
         year: '2025',
-        title: 'Stagiaire Technicien Réseau',
-        company: 'Réso Buro',
         icon: Server,
         color: '#00d4ff',
-        tasks: [
-            'Migration du système de ticketing via PHP/API REST',
-            'Optimisation du monitoring avec PowerShell',
-            'Déploiement de MeshCentral pour la gestion à distance',
-        ],
         tags: ['PHP', 'API REST', 'PowerShell', 'MeshCentral'],
     },
     {
         year: '2024',
-        title: 'Stagiaire Technicien Réseau & Télécom',
-        company: 'Réseaux Bureautique',
         icon: Phone,
         color: '#8b5cf6',
-        tasks: [
-            'Configuration 3CX (VoIP)',
-            'Déploiement WatchGuard T35',
-            'Mise en place de la stack ELK/Grafana pour le monitoring',
-        ],
         tags: ['3CX', 'VoIP', 'WatchGuard', 'ELK', 'Grafana'],
     },
 ]
 
 export default function Experience() {
+    const { t } = useLanguage()
     return (
         <section id="experience" className="relative py-24 px-6">
             <div className="max-w-4xl mx-auto">
@@ -43,7 +31,7 @@ export default function Experience() {
                     className="text-center mb-16"
                 >
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                        Expériences
+                        {t.experience.title}
                     </h2>
                     <div className="w-20 h-1 bg-gradient-to-r from-transparent via-neon to-transparent mx-auto rounded-full" />
                 </motion.div>
@@ -53,12 +41,13 @@ export default function Experience() {
                     {/* Vertical line */}
                     <div className="timeline-line" />
 
-                    {experiences.map((exp, i) => {
-                        const Icon = exp.icon
+                    {t.experience.items.map((exp, i) => {
+                        const meta = experiencesMeta[i]
+                        const Icon = meta.icon
                         const isLeft = i % 2 === 0
                         return (
                             <motion.div
-                                key={exp.year}
+                                key={meta.year}
                                 initial={{ opacity: 0, y: 50 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: '-50px' }}
@@ -72,10 +61,10 @@ export default function Experience() {
                                         {/* Year badge */}
                                         <div
                                             className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-4"
-                                            style={{ backgroundColor: exp.color + '15', color: exp.color }}
+                                            style={{ backgroundColor: meta.color + '15', color: meta.color }}
                                         >
                                             <Briefcase size={12} />
-                                            {exp.year}
+                                            {meta.year}
                                         </div>
 
                                         <h3 className="text-xl font-bold text-white mb-1">
@@ -88,14 +77,14 @@ export default function Experience() {
                                         <ul className="space-y-2 mb-4">
                                             {exp.tasks.map((task, j) => (
                                                 <li key={j} className="flex items-start gap-2 text-sm text-white/60">
-                                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: exp.color }} />
+                                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: meta.color }} />
                                                     {task}
                                                 </li>
                                             ))}
                                         </ul>
 
                                         <div className="flex flex-wrap gap-2">
-                                            {exp.tags.map((tag) => (
+                                            {meta.tags.map((tag) => (
                                                 <span
                                                     key={tag}
                                                     className="px-2 py-1 rounded-md bg-white/5 text-xs text-white/50 border border-white/5"
@@ -112,9 +101,9 @@ export default function Experience() {
                                     <div
                                         className="w-10 h-10 rounded-full flex items-center justify-center border-2"
                                         style={{
-                                            backgroundColor: exp.color + '10',
-                                            borderColor: exp.color + '50',
-                                            color: exp.color,
+                                            backgroundColor: meta.color + '10',
+                                            borderColor: meta.color + '50',
+                                            color: meta.color,
                                         }}
                                     >
                                         <Icon size={16} />

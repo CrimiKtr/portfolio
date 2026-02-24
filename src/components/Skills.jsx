@@ -5,10 +5,10 @@ import {
     Activity, BarChart3, Eye, Bug,
     FileCode, Hash, Braces, Cpu
 } from 'lucide-react'
+import { useLanguage } from '../i18n/LanguageContext'
 
 const skillCategories = [
     {
-        title: 'Réseaux',
         icon: Network,
         color: '#00d4ff',
         skills: [
@@ -19,7 +19,6 @@ const skillCategories = [
         ],
     },
     {
-        title: 'Systèmes & Admin',
         icon: Server,
         color: '#8b5cf6',
         skills: [
@@ -30,7 +29,6 @@ const skillCategories = [
         ],
     },
     {
-        title: 'Monitoring',
         icon: Activity,
         color: '#22c55e',
         skills: [
@@ -41,7 +39,6 @@ const skillCategories = [
         ],
     },
     {
-        title: 'Dev & Programmation',
         icon: Code,
         color: '#f59e0b',
         skills: [
@@ -91,6 +88,7 @@ function TiltCard({ children, index }) {
 }
 
 export default function Skills() {
+    const { t } = useLanguage()
     return (
         <section id="skills" className="relative py-24 px-6">
             <div className="max-w-6xl mx-auto">
@@ -103,7 +101,7 @@ export default function Skills() {
                     className="text-center mb-16"
                 >
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                        Compétences
+                        {t.skills.title}
                     </h2>
                     <div className="w-20 h-1 bg-gradient-to-r from-transparent via-neon to-transparent mx-auto rounded-full" />
                 </motion.div>
@@ -112,8 +110,9 @@ export default function Skills() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {skillCategories.map((cat, i) => {
                         const Icon = cat.icon
+                        const catTitle = t.skills.categories[i]?.title || ''
                         return (
-                            <TiltCard key={cat.title} index={i}>
+                            <TiltCard key={i} index={i}>
                                 <div className="flex items-center gap-3 mb-5">
                                     <div
                                         className="w-10 h-10 rounded-xl flex items-center justify-center"
@@ -122,7 +121,7 @@ export default function Skills() {
                                         <Icon size={20} />
                                     </div>
                                     <h3 className="text-lg font-semibold text-white">
-                                        {cat.title}
+                                        {catTitle}
                                     </h3>
                                 </div>
                                 <div className="flex flex-wrap gap-2">
