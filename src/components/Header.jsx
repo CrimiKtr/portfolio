@@ -59,11 +59,18 @@ export default function Header() {
             <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
                 <motion.a
                     href="#hero"
-                    className="text-2xl font-bold tracking-tight"
+                    className="flex items-center gap-3"
                     whileHover={{ scale: 1.05 }}
                 >
-                    <span className="text-white">Toli </span>
-                    <span className="bg-gradient-to-r from-neon to-blue-400 bg-clip-text text-transparent">INCE</span>
+                    <img
+                        src="/logo.jpg"
+                        alt="Toli INCE"
+                        className="w-10 h-10 rounded-full object-cover border-2 border-neon/50 shadow-lg shadow-neon/20"
+                    />
+                    <span className="text-xl font-bold tracking-tight">
+                        <span className="text-white">Toli </span>
+                        <span className="bg-gradient-to-r from-neon to-blue-400 bg-clip-text text-transparent">INCE</span>
+                    </span>
                 </motion.a>
 
                 {/* Desktop nav */}
