@@ -38,6 +38,27 @@ export default function Hero() {
                 <p>{t.hero.p4}</p>
             </motion.div>
 
+            {/* Internship Search Banner */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+                className="mt-8 w-full max-w-2xl"
+            >
+                <div className="internship-glow rounded-full border border-neon/30 bg-gradient-to-r from-neon/5 via-blue-500/10 to-neon/5 py-3 px-4 internship-banner">
+                    <div className="internship-banner-track">
+                        {[...Array(4)].map((_, i) => (
+                            <span
+                                key={i}
+                                className="flex-shrink-0 px-8 text-sm md:text-base font-medium text-neon whitespace-nowrap"
+                            >
+                                {t.hero.internshipBanner}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </motion.div>
+
             {/* LinkedIn CTA */}
             <motion.a
                 href="https://fr.linkedin.com/in/toli-ince-a450a1235"

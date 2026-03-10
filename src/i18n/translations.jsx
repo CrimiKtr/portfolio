@@ -52,6 +52,7 @@ export const translations = {
                 </>
             ),
             linkedin: 'Voir mon LinkedIn',
+            internshipBanner: '🔍 Actuellement à la recherche d\'un stage de 5 semaines dans le domaine de l\'informatique — Disponible et motivé !',
         },
 
         // Skills
@@ -224,6 +225,7 @@ export const translations = {
                 </>
             ),
             linkedin: 'View my LinkedIn',
+            internshipBanner: '🔍 Currently looking for a 5-week internship in the IT / Computer Science field — Available and motivated!',
         },
 
         // Skills
