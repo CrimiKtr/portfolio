@@ -18,7 +18,7 @@ export const translations = {
             titleHighlight: 'ECE Paris',
             p1: (
                 <>
-                    Salut, moi c'est <span className="text-neon font-semibold">Toli Ince</span>, actuellement en{' '}
+                    Bonjour, moi c'est <span className="text-neon font-semibold">Toli Ince</span>, actuellement en{' '}
                     <span className="text-white font-semibold">1ère année du cycle ingénieur</span> à l'{' '}
                     <span className="text-white font-semibold">ECE Paris</span>.
                 </>
@@ -26,19 +26,21 @@ export const translations = {
             p2: (
                 <>
                     Ce qui me motive au quotidien, c'est la{' '}
-                    <span className="text-white font-semibold">cybersécurité</span> et l'
-                    <span className="text-white font-semibold">administration réseau</span>. J'aime comprendre
-                    comment fonctionnent les systèmes pour mieux les protéger et les renforcer.
+                    <span className="text-white font-semibold">cybersécurité</span>, l'
+                    <span className="text-white font-semibold">administration réseau</span> et la{' '}
+                    <span className="text-white font-semibold">Data</span>. J'aime comprendre
+                    comment fonctionnent les systèmes pour mieux les protéger, les renforcer et en exploiter les données.
                 </>
             ),
             p3: (
                 <>
                     Je me dirige vers une spécialisation en{' '}
-                    <span className="text-white font-semibold">Réseaux & Cybersécurité</span>. J'ai pour ambition
+                    <span className="text-white font-semibold">Data & IA</span>. J'ai pour ambition
                     de développer mon expertise en{' '}
-                    <span className="text-white font-semibold">sécurité</span> et en{' '}
-                    <span className="text-white font-semibold">architecture réseau</span>, afin de bâtir des
-                    infrastructures solides et fiables.
+                    <span className="text-white font-semibold">science des données</span>, en{' '}
+                    <span className="text-white font-semibold">intelligence artificielle</span> et en{' '}
+                    <span className="text-white font-semibold">sécurité</span>, afin de concevoir des solutions
+                    innovantes et fiables.
                 </>
             ),
             p4: (
@@ -196,19 +198,21 @@ export const translations = {
             p2: (
                 <>
                     What drives me every day is{' '}
-                    <span className="text-white font-semibold">cybersecurity</span> and{' '}
-                    <span className="text-white font-semibold">network administration</span>. I love understanding
-                    how systems work in order to better protect and strengthen them.
+                    <span className="text-white font-semibold">cybersecurity</span>,{' '}
+                    <span className="text-white font-semibold">network administration</span> and{' '}
+                    <span className="text-white font-semibold">Data</span>. I love understanding
+                    how systems work in order to better protect, strengthen them and leverage their data.
                 </>
             ),
             p3: (
                 <>
                     I'm heading towards a specialization in{' '}
-                    <span className="text-white font-semibold">Networks & Cybersecurity</span>. My ambition is
+                    <span className="text-white font-semibold">Data & AI</span>. My ambition is
                     to develop my expertise in{' '}
-                    <span className="text-white font-semibold">security</span> and{' '}
-                    <span className="text-white font-semibold">network architecture</span>, to build solid and
-                    reliable infrastructures.
+                    <span className="text-white font-semibold">data science</span>,{' '}
+                    <span className="text-white font-semibold">artificial intelligence</span> and{' '}
+                    <span className="text-white font-semibold">security</span>, to design innovative and
+                    reliable solutions.
                 </>
             ),
             p4: (
