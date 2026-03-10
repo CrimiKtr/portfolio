@@ -296,6 +296,10 @@ body {
   color: rgba(26, 26, 46, 0.45) !important;
 }
 
+[data-theme="light"] .text-white\/45 {
+  color: rgba(26, 26, 46, 0.5) !important;
+}
+
 [data-theme="light"] .text-white\/30 {
   color: rgba(26, 26, 46, 0.35) !important;
 }
